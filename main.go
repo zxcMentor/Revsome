@@ -183,7 +183,7 @@ func (h *UserHandler) CreateHand(w http.ResponseWriter, r *http.Request) {
 		Email:    "Аpopo",
 		Password: "sdgsg",
 		Name:     "gsfdgsd",
-		Age:      9,
+		Age:      20,
 	}
 
 	if err := h.UserServ.CreateUser(user); err != nil {
