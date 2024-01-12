@@ -190,6 +190,10 @@ func (h *UserHandler) CreateHand(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+	users, _ := h.CacheDB.GetCacheAllUsers()
+	users = append(users, user)
+	h.CacheDB.Set("all_users", users)
+
 	w.Write([]byte("Create user"))
 	w.WriteHeader(http.StatusCreated)
 }
